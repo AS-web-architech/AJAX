@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Ajax HTTP request</h1>
+    <br>
+    <p>Click here to load data</p><br>
+    <button type="button" onclick="LoadData()">loadData</button>
+    <br>
+    <p id="data"></p>    
+<!-- <script src="index.js"></script> -->
+<script>
+    function LoadData(){
+        var xhttp=new XMLHttpRequest();
+          xhttp.onreadystatechange=function(){
+            if(this.readyState == 4 && this.status == 200){
+                document.getElementById('data').innerHTML = this.responseText;
+                // console.log(this.responseText)
+            }
+          }
+
+
+        xhttp.open('GET','readme.txt',true);
+        xhttp.send();
+    }
+
+</script>
+</body>
+</html>
